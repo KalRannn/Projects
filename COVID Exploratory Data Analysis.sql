@@ -82,8 +82,8 @@ JOIN [dbo].[CovidVaccinations$] vac
 WHERE dea.continent is NOT NULL
 --ORDER BY 2,3
 
---SELECT *, (RollingPeopleVaccinated/Population)*100
---FROM #PercentPopVacc
+SELECT *, (RollingPeopleVaccinated/Population)*100
+FROM #PercentPopVacc
 
 CREATE VIEW PercentPopVacc as
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
