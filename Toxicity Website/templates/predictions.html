@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css')}}">
+        <title>Result</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Result</h1>
+        </div>
+    <canvas id="bar" width="900" height="900"></canvas>
+    <script>
+        var ctx = document.getElementById("bar").getContext("2d")
+        var bar = new Chart(ctx,{
+            type: 'bar',
+            data:{
+            labels:{{keys | safe}},
+            datasets:[
+            {
+                label:"Different Levels",
+                data: {{values | safe}}
+            }
+            ]
+            },
+        options:{
+        
+                indexAxis: 'y',
+                    elements: {
+                bar: {
+                  borderWidth: 2,
+                }
+              },
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: 'right',
+                    },
+        title: {
+          display: true,
+          text: 'Levels of Toxicity'
+        }
+      }
+    },
+    
+            
+        })
+    </script>
+        
+    </body>
+    </html>

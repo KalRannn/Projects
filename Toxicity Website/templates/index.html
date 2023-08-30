@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styled.css')}}">
+    <title>Toxicity Detector</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Toxicity Detector</h1>
+        <form action="{{ url_for('predict')}}" method="POST">
+        <p>Enter a message below to check its toxicity:</p>
+        <textarea name="comment" placeholder="Enter your comment"></textarea>
+        <input type="submit" class="btn-info" value="Check Toxicity">
+        </form>
+    </div>
+    
+</body>
+</html>
